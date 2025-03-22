@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Тюпакова Ксения Юрьевна">
+    <title>Тюпакова Ксения Юрьевна</title>
+    <style>
+        /* Устанавливаем фон и параметры текста */
+        body {
+            background-image: url('wall.jpg');
+            /* Фоновое изображение */
+            font-family: 'Times New Roman', Times, serif;
+            /* Шрифт текста */
+            font-size: 14pt;
+            /* Размер текста */
+        }
+
+        /* Центрир заголовка */
+        h2 {
+            text-align: center;
+        }
+
+        /* Устанавливаем стиль для группы (нижний индекс и цвет) */
+        sub {
+            color: orange;
+        }
+
+        /* Центрирование и подчеркивание курса */
+        .course {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        /* Стиль для увлечений: жирный текст, курсив, выравнивание вправо */
+        .hobbies {
+            text-align: right;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* Оформление изображения: обтекание слева и рамка */
+        img {
+            float: left;
+            border: 2px solid black;
+        }
+
+        /* Настройки для таблицы */
+        table {
+            width: 50%;
+            /* Ширина таблицы */
+            border-collapse: collapse;
+            /* Убираем двойные границы */
+            margin-top: 20px;
+            /* Отступ сверху */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Заголовок страницы -->
+    <h2>Тюпакова Ксения Юрьевна</h2>
+
+    <!-- Группа с нижним индексом -->
+    <p>Группа: <sub>ПЗТ-40</sub></p>
+
+    <!-- Курс с центром выравнивания -->
+    <p class="course">Курс 3</p>
+
+    <!-- Увлечения с правым выравниванием, курсивом и жирным текстом -->
+    <p class="hobbies">Мои увлечения: хоккей, волейбол</p>
+
+    <!-- Список -->
+    <p>К. Зима</p>
+    <p>L. Весна</p>
+    <p>М. Лето</p>
+
+    <!-- Изображение с рамкой и подписью -->
+    <img scr="width: auto;" src="а.JPG" alt="Фото" width="300">
+    <p>Хоккей и кот</p>
+
+    <!-- Ссылки с выравниванием по правому краю -->
+    <p style="text-align: right;"><a href="вторая_страница.html">Следующая страница</a></p>
+    <p style="text-align: right;"><a href="http://ggpk.by">Сайт колледжа</a></p>
+
+    <!-- Таблица с объединением ячеек -->
+    <table border="1" align="center" cellspacing="0">
+        <tr style="background-color: yellow;">
+            <th colspan="4" height="20"></th> <!-- Объединённая ячейка -->
+        </tr> 
+        <tr>
+            <td align="center">Один</td>
+            <td align="center" style="background-color: lightgreen;">Три</td>
+            <td align="center">Четыре</td>
+            <td align="center" style="background-color: purple; color: black;">Пять</td>
+        </tr>
+    </table>
+
+    <!-- Форма для авторизации -->
+    <form method="post">
+        <p align="center">Авторизация</p>
+        <!-- Поле для логина -->
+        <p align="center">
+            <label for="login">Логин:</label>
+            <input type="text" id="login" name="login" placeholder="Admin"><br>
+        </p>
+        <!-- Поле для пароля -->
+        <p align="center">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password"><br>
+        </p>
+        <!-- Чекбокс для запоминания -->
+        <p align="center">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Запомнить меня на<br> этом компьютере</label><br>
+        </p>
+        <!-- Кнопка входа -->
+        <p align="center">
+            <button type="submit">Войти</button>
+        </p>
+        <!-- Ссылки на регистрацию и восстановление пароля -->
+        <p align="center">
+            <a href="регистрация.html">Регистрация</a><br>
+            <a href="восстановление_пароля.html">Забыли свой пароль?</a>
+        </p>
+    </form>
+</body>
+
+</html>

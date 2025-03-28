@@ -1,0 +1,25 @@
+body {
+    background-image: url('wall.jpg');
+    background-repeat: no-repeat;
+    font-family: 'Times New Roman';
+    font-size: 16pt;
+    color: rgb(0, 183, 255);
+}
+
+/* Стили для ссылок  */
+a {
+    text-decoration: none;
+    /* Неподчеркнутая по умолчанию */
+}
+
+a:active {
+    text-decoration: none;
+    /* Неподчеркнутая активная */
+}
+
+a:hover {
+    color: green;
+    text-decoration: none;
+    /* Неподчеркнутая при наведении */
+}
+

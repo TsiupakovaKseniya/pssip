@@ -1,0 +1,5 @@
+/* Стили для списка  */
+.filled-circle {
+    list-style-type: disc;
+    /* Кружок с заливкой */
+}

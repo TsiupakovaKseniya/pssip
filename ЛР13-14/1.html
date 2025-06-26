@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка подключения к интернету</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Проверка подключения к интернету</h1>
+    <button id="checkConnection">Проверить подключение</button>
+
+    <script>
+        document.getElementById('checkConnection').addEventListener('click', function() {
+            // Проверяем состояние подключения
+            const isOnline = navigator.onLine;
+            const status = isOnline ? 'подключен' : 'не подключен';
+            
+            // Создаем новое окно с указанными параметрами
+            const resultWindow = window.open('', 'ФИО', 'width=300,height=250');
+            
+            // Заполняем содержимое окна
+            resultWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>ФИО</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            text-align: center;
+                            padding: 20px;
+                        }
+                        .status {
+                            font-size: 24px;
+                            margin: 30px 0;
+                            color: ${isOnline ? '#4CAF50' : '#f44336'};
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h2>Статус подключения</h2>
+                    <div class="status">
+                        Клиент ${status} к Интернету
+                    </div>
+                    <p>Размер окна: 300x250px</p>
+                </body>
+                </html>
+            `);
+            
+            // Закрываем поток записи
+            resultWindow.document.close();
+        });
+    </script>
+</body>
+</html>

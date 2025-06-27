@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="main.js"></script>
+	<script type="text/javascript">
+	//  Внутренний скрипт
+		function Show_IfElse(){
+			var number = prompt("Введите число от 1 до 10");
+			if (number >= 1 && number <= 10) {
+			if (number % 2 === 0) {
+				alert(`Число ${number} четное`);
+			} else {
+				alert(`Число ${number} нечетное`);
+			}
+			} 
+			else {
+			alert("Пожалуйста, введите число в диапазоне от 1 до 10");
+   		}
+}
+	</script>
+</head>
+<body>
+	<div>
+		<button onclick="Show_IfElse()">If/Else</button>
+	</div>
+	<div>
+		<!--внешний скрипт-->
+		<button onclick="Show_Switch()">Switch</button>
+	</div>	
+	<div>
+		<button onclick="Show_For()">For</button>
+	</div>
+	<div>
+		<button onclick="Show_While()">While</button>
+	</div>
+	<div>
+		<button onclick="Show_DoWhile()">DoWhile</button>
+	</div>
+	<div>
+		<button onclick="Show_BreakContinueReturn()">BreakContinueReturn</button>
+	</div>
+	<div>
+		<!-- встроенный скрипт-->
+		<button onclick="alert('Привет!')">Alert</button>
+	</div>
+	<div>
+		<!-- в атрибуте href-->
+		<a href="JavaScript:alert('Ура!')">Alert</a>
+	</div>
+	<div>
+		<button onclick="Show_Confirm()">Confirm</button>
+	</div>
+	<div>
+		<button onclick="Show_Promt()">Promt</button>
+	</div>
+</body>
+</html>

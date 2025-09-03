@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ООП Пример</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Пример ООП на JavaScript</h1>
+    <div id="output"></div>
+
+    <script>
+        // Базовый класс "Фигура"
+        class Shape {
+            constructor(name) {
+                this.name = name; // Инкапсуляция: имя фигуры
+            }
+
+            // Метод для вычисления площади (будет переопределен в дочерних классах)
+            area() {
+                throw new Error("Метод 'area' должен быть переопределен в дочернем классе");
+            }
+
+            // Метод для получения информации о фигуре
+            info() {
+                return `Это ${this.name}. Площадь: ${this.area()}`;
+            }
+        }
+
+        // Класс "Круг", наследуется от "Фигура"
+        class Circle extends Shape {
+            constructor(radius) {
+                super("Круг"); // Вызов конструктора родительского класса
+                this.radius = radius; // Инкапсуляция: радиус круга
+            }
+
+            // Переопределение метода area
+            area() {
+                return Math.PI * this.radius * this.radius; // Площадь круга
+            }
+        }
+
+        // 2.Класс "Прямоугольник", наследуется от "Фигура"
+        class Rectangle extends Shape {
+            constructor(width, height) {
+                super("Прямоугольник"); // Вызов конструктора родительского класса
+                this.width = width; // Инкапсуляция: ширина прямоугольника
+                this.height = height; // Инкапсуляция: высота прямоугольника
+            }
+
+            // Переопределение метода area
+            area() {
+                return this.width * this.height; // Площадь прямоугольника
+            }
+        }
+
+        //1. Создание объектов
+        const circle = new Circle(5);
+        const rectangle = new Rectangle(4, 6);
+
+        // Вывод информации о фигурах
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML += `<p>${circle.info()}</p>`;
+        outputDiv.innerHTML += `<p>${rectangle.info()}</p>`;
+    </script>
+</body>
+
+</html>

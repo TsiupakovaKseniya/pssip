@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lr18</title>
+</head>
+<body>
+	<div class="z1">
+		<h2>Задание 1</h2>
+		<form id="userForm">
+			<label for="name">Имя:</label> <!-- текстовое поле -->
+			<input type="text" id="name" name="name" required><br><br>
+
+			<label for="email">Email:</label> <!-- текстовое поле -->
+			<input type="email" id="email" name="email" required><br><br>
+
+			<label>Пол:</label>
+			<input type="radio" id="male" name="gender" value="Мужской"><!-- переключатель -->
+			<label for="male">Мужской</label>
+			<input type="radio" id="female" name="gender" value="Женский">
+			<label for="female">Женский</label><br><br>
+
+			<label>Интересы:</label><br>
+			<input type="checkbox" id="sports" name="interests" value="Спорт"><!-- флажки -->
+			<label for="sports">Спорт</label><br>
+			<input type="checkbox" id="music" name="interests" value="Музыка">
+			<label for="music">Музыка</label><br>
+			<input type="checkbox" id="travel" name="interests" value="Путешествия">
+			<label for="travel">Путешествия</label><br><br>
+
+			<label for="country">Страна:</label>
+			<select id="country" name="country"><!-- список -->
+				<option value="Беларусь">Беларусь</option>
+				<option value="США">США</option>
+				<option value="Германия">Германия</option>
+			</select><br><br>
+
+			<button type="button" onclick="submitForm()">Отправить</button>
+		</form>
+
+		<script>
+			function submitForm() {
+				// Извлечение данных из формы
+				const name = document.getElementById('name').value;
+				const email = document.getElementById('email').value;
+				const gender = document.querySelector('input[name="gender"]:checked')?.value || 'Не указан';
+				const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value);
+				const country = document.getElementById('country').value;
+
+				// Формирование сообщения
+				const message = `
+					Имя: ${name}
+					Email: ${email}
+					Пол: ${gender}
+					Интересы: ${interests.join(', ') || 'Нет'}
+					Страна: ${country}
+				`;
+
+				// Вывод сообщения в диалоговом окне
+				alert(message);
+			}
+		</script>
+	</div>
+	<div class="z2">
+		<h2>Задание 2</h2>
+		<!-- Поле ввода для email -->
+		<label for="email3">Введите адрес электронной почты:</label>
+		<input type="text3" id="email3" placeholder="example@example.com">
+		<button onclick="validateEmail()">Проверить Email</button>
+		<p id="emailResult3"></p>
+		</div>
+		<div>
+
+		</div>
+	</div>
+	<div class="z3">
+		<h2>Примеры работы с регулярными выражениями и методами строки</h2>
+
+		<!-- Поле ввода для телефона с новой маской -->
+		<label for="phone3">Введите номер телефона (+375(33)333-33-33):</label>
+		<input type="tel" id="phone3" name="phone3" placeholder="+375(33)333-33-33"
+			pattern="\+375\(?(25|29|33|44)\)?\d{3}-\d{2}-\d{2}" required title="Введите номер в формате +375(33)333-33-33" />
+		<button onclick="extractPhoneNumber()">Извлечь номер телефона</button>
+		<p id="phoneResult3"></p>
+
+		<!-- Поле ввода для текста с разделителями -->
+		<label for="fruits3">Введите фрукты через , ; или |:</label>
+		<input type="text" id="fruits3" placeholder="Яблоко, Банан; Апельсин|Манго">
+		<button onclick="splitFruits()">Разделить фрукты</button>
+		<p id="fruitResult3"></p>
+
+
+
+		<!-- Поле ввода для текста с датами -->
+		<label for="text3">Введите текст с датами:</label>
+		<input type="text3" id="text3" placeholder="Сегодня 12/10/2023 и завтра 13/10/2023">
+		<button onclick="findDates()">Найти даты</button>
+		<p id="dateResult3"></p>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

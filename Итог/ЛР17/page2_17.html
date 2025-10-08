@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерфейсные события</title>
+    <style>
+        #dropZone {
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 200px;
+        }
+        #scrollable {
+            width: 300px;
+            height: 100px;
+            overflow-y: scroll;
+            border: 1px solid #000;
+            margin: 20px auto;
+        }
+        #output {
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Демонстрация интерфейсных событий</h1>
+
+    <h2>1. События мыши</h2>
+    <button id="mouseButton">Нажми меня</button>
+
+    <h2>2. События клавиатуры</h2>
+    <input type="text" id="keyboardInput" placeholder="Нажмите клавишу" />
+
+    <h2>3. Drag&DROP события</h2>
+    <div id="dropZone">Перетащите сюда файл</div>
+
+    <h2>4. События указателя</h2>
+    <div id="pointerArea" style="width: 300px; height: 100px; background-color: lightblue; margin: 20px auto;">Укажите сюда</div>
+
+    <h2>5. События полосы прокрутки</h2>
+    <div id="scrollable">
+        <p>Содержимое для прокрутки...</p>
+        <p>Содержимое для прокрутки...</p>
+        <p>Содержимое для прокрутки...</p>
+        <p>Содержимое для прокрутки...</p>
+        <p>Содержимое для прокрутки...</p>
+    </div>
+
+    <h2>6. События сенсорных экранов</h2>
+    <div id="touchArea" style="width: 300px; height: 100px; background-color: lightgreen; margin: 20px auto;">
+        Сенсорная область
+    </div>
+        <p id="statusText"></p>
+        </div>
+
+    <h2>7. События, связанные с таймером</h2>
+    <button id="startTimer">Запустить таймер</button>
+    <div id="timerOutput"></div>
+
+    <div id="output"></div>
+
+    <script>
+        // 1. События мыши
+        document.getElementById('mouseButton').addEventListener('click', function() {
+            alert('Кнопка нажата!');
+        });
+
+        // 2. События клавиатуры
+document.getElementById('keyboardInput').addEventListener('keydown', function(event) {
+    document.getElementById('output').innerText = 'Вы нажали: ' + event.key;
+
+    // Проверяем, нажаты ли клавиши Ctrl и C одновременно
+    if (event.ctrlKey && event.key === 'c') {
+        // Изменяем цвет фона
+        document.body.style.backgroundColor = 'lightgreen'; // Цвет фона при нажатии сочетания клавиш
+
+        // Выводим alert
+        alert('Цвет экрана изменен на светло-зеленый!');
+    }
+
+    // Проверяем, нажата ли клавиша X
+    if (event.key === 'x' || event.key === 'X') {
+        // Закрываем окно
+        window.close();
+    }
+});
+
+        // 3. Drag&DROP события
+        const dropZone = document.getElementById('dropZone');
+        dropZone.addEventListener('dragover', function(event) {
+            event.preventDefault();
+        });
+        dropZone.addEventListener('drop', function(event) {
+            event.preventDefault();
+            alert('Файл перетащен!');
+        });
+
+        // 4. События указателя
+        const pointerArea = document.getElementById('pointerArea');
+        pointerArea.addEventListener('pointerdown', function() {
+            alert('Указатель на области!');
+        });
+
+        // 5. События полосы прокрутки
+        const scrollable = document.getElementById('scrollable');
+        scrollable.addEventListener('scroll', function() {
+            console.log('Прокрутка выполнена!');
+        });
+
+        // 6. События сенсорных экранов
+        const touchArea = document.getElementById('touchArea');
+            const statusText = document.getElementById('statusText');
+            let isMoving = false;
+            let timer2;
+
+            function resetStatus() {
+                clearTimeout(timer2);
+                isMoving = false;
+                statusText.innerText = 'Курсор остается на месте';
+            }
+
+            touchArea.addEventListener('mouseenter', function () {
+                statusText.innerText = 'Курсор в данной области';
+            });
+
+            touchArea.addEventListener('mouseleave', function () {
+                clearTimeout(timer2);
+                statusText.innerText = 'Курсора нет в данной области';
+            });
+
+            touchArea.addEventListener('mousemove', function () {
+                if (!isMoving) {
+                    statusText.innerText = 'Курсор двигается';
+                    isMoving = true;
+                }
+
+                clearTimeout(timer2);
+                timer2 = setTimeout(resetStatus, 1000); // 1 секунда без движения
+            });
+
+            // Обработка сенсорных событий
+            touchArea.addEventListener('touchstart', function () {
+                statusText.innerText = 'Курсор в данной области (сенсор)';
+            });
+
+            touchArea.addEventListener('touchend', function () {
+                statusText.innerText = 'Курсора нет в данной области (сенсор)';
+            });
+
+            touchArea.addEventListener('touchmove', function () {
+                if (!isMoving) {
+                    statusText.innerText = 'Курсор двигается (сенсор)';
+                    isMoving = true;
+                }
+
+                clearTimeout(timer);
+                timer = setTimeout(resetStatus, 1000); // 1 секунда без движения
+            });
+
+        // 7. События, связанные с таймером
+        let timer;
+        document.getElementById('startTimer').addEventListener('click', function() {
+            let count = 0;
+            timer = setInterval(function() {
+                count++;
+                document.getElementById('timerOutput').innerText = 'Таймер: ' + count + ' секунд';
+                  if (count === 10) {
+                    clearInterval(timer);
+                    alert('Таймер завершен!');
+                }
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>

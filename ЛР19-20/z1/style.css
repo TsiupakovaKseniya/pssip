@@ -370,3 +370,24 @@ a{
  		width: 100%;
  	}
  }
+
+
+
+
+
+
+
+  .error-message {
+  	color: #e74c3c !important;
+  	font-size: 12px !important;
+  	margin-top: 5px !important;
+  	font-weight: 500;
+  }
+
+  .call__card input:invalid {
+  	border-color: #e74c3c;
+  }
+
+  .call__card input:valid {
+  	border-color: #27ae60;
+  }

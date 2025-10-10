@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экспресс заказ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .required::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Экспресс заказ</h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name" class="required">Ваше имя</label>
+                <input type="text" id="name" name="name" required placeholder="Ваше имя">
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="required">Ваш номер телефона</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+375(XX)XXX-XX-XX">
+                <div class="error" id="phoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="size" class="required">Размер</label>
+                <select id="size" name="size" required>
+                    <option value="">Выберите размер</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <div class="error" id="sizeError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="delivery" class="required">Доставка</label>
+                <select id="delivery" name="delivery" required>
+                    <option value="">Выберите способ доставки</option>
+                    <option value="Самовывоз">Самовывоз</option>
+                    <option value="Доставка">Доставка</option>
+                </select>
+                <div class="error" id="deliveryError"></div>
+            </div>
+
+        
+            <div class="form-group">
+                <label for="address">Адрес доставки и дополнительная информация</label>
+                <textarea id="address" name="address" rows="3"
+                    placeholder="Адрес доставки и дополнительная информация"></textarea>
+                <div class="error" id="addressError"></div>
+            </div>
+
+            <button type="submit">Заказать</button>
+        </form>
+
+        <!--<div id="output"></div>
+    </div>-->
+
+    <script src="scrypt.js"></script>
+
+</body>
+
+</html>

@@ -197,39 +197,39 @@ document.addEventListener('DOMContentLoaded', () => {
 // Функция для сохранения данных в Cookie
 //function saveToCookie() {
     //const firstName = document.getElementById('firstName').value;
-  //  const lastName = document.getElementById('lastName').value;
+   //const lastName = document.getElementById('lastName').value;
     //const email = document.getElementById('email').value;
-   // const phone = document.getElementById('phone').value;
+    //const phone = document.getElementById('phone').value;
 
     // Сохраняем данные в Cookie на 30 дней
-   // const date = new Date();
+    //const date = new Date();
     //date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
     //const expires = "expires=" + date.toUTCString();
 
     //document.cookie = "callbackFirstName=" + encodeURIComponent(firstName) + ";" + expires + ";path=/";
-  //  document.cookie = "callbackLastName=" + encodeURIComponent(lastName) + ";" + expires + ";path=/";
-  //  document.cookie = "callbackEmail=" + encodeURIComponent(email) + ";" + expires + ";path=/";
-   // document.cookie = "callbackPhone=" + encodeURIComponent(phone) + ";" + expires + ";path=/";
+    //document.cookie = "callbackLastName=" + encodeURIComponent(lastName) + ";" + expires + ";path=/";
+    //document.cookie = "callbackEmail=" + encodeURIComponent(email) + ";" + expires + ";path=/";
+    //document.cookie = "callbackPhone=" + encodeURIComponent(phone) + ";" + expires + ";path=/";
 
-  //  alert('Данные сохранены в Cookie!');
+  // alert('Данные сохранены в Cookie!');
 //}
 
 // Функция для загрузки данных из Cookie
 //function loadFromCookie() {
-   // const cookies = document.cookie.split(';');
+    //const cookies = document.cookie.split(';');
     //const data = {};
 
     //cookies.forEach(cookie => {
-        //const [name, value] = cookie.trim().split('=');
-    //    data[name] = decodeURIComponent(value);
-   // });
+     //   const [name, value] = cookie.trim().split('=');
+   //   data[name] = decodeURIComponent(value);
+ //});
 
     //if (data.callbackFirstName) document.getElementById('firstName').value = data.callbackFirstName;
-   // if (data.callbackLastName) document.getElementById('lastName').value = data.callbackLastName;
+   //if (data.callbackLastName) document.getElementById('lastName').value = data.callbackLastName;
     //if (data.callbackEmail) document.getElementById('email').value = data.callbackEmail;
-  //  if (data.callbackPhone) document.getElementById('phone').value = data.callbackPhone;
+  //if (data.callbackPhone) document.getElementById('phone').value = data.callbackPhone;
 
-    //alert('Данные загружены из Cookie!');
+  //  alert('Данные загружены из Cookie!');
 //}
 
 // Функция для очистки Cookie
@@ -240,18 +240,18 @@ document.addEventListener('DOMContentLoaded', () => {
     //document.cookie = "callbackPhone=; expires=Thu, 01 Jan 2026 00:00:00 UTC; path=/;";
 
     // Очищаем поля формы
-    //document.getElementById('firstName').value = '';
-    //document.getElementById('lastName').value = '';
-    //document.getElementById('email').value = '';
+   // document.getElementById('firstName').value = '';
+  //  document.getElementById('lastName').value = '';
+//document.getElementById('email').value = '';
     //document.getElementById('phone').value = '';
 
-    //alert('Cookie очищены!');
+  //  alert('Cookie очищены!');
 //}
 
-// Автозагрузка данных при открытии страницы (опционально)
+//Автозагрузка данных при открытии страницы (опционально)
 //document.addEventListener('DOMContentLoaded', function () {
 
-    // loadFromCookie();
+  //   loadFromCookie();
 //});
 
 
@@ -259,6 +259,202 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Функция для сохранения данных в Local Storage
+function saveToLocalStorage() {
+   const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+   const phone = document.getElementById('phone').value;
+
+    const formData = {
+        firstName: firstName,
+      lastName: lastName,
+     email: email,
+       phone: phone,
+      timestamp: new Date().toISOString()
+    };
+
+    // Сохраняем данные в Local Storage
+    localStorage.setItem('callbackFormData', JSON.stringify(formData));
+
+    alert('Данные сохранены в Local Storage!');
+   return false; // Предотвращаем отправку формы
+}
+
+// Функция для загрузки данных из Local Storage
+function loadFromLocalStorage() {
+  const savedData = localStorage.getItem('callbackFormData');
+
+   if (savedData) {
+        const formData = JSON.parse(savedData);
+
+       document.getElementById('firstName').value = formData.firstName || '';
+        document.getElementById('lastName').value = formData.lastName || '';
+        document.getElementById('email').value = formData.email || '';
+        document.getElementById('phone').value = formData.phone || '';
+
+        alert('Данные загружены из Local Storage!');
+   } else {
+      alert('В Local Storage нет сохраненных данных!');
+    }
+}
+
+//Функция для очистки Local Storage
+function clearLocalStorage() {
+  localStorage.removeItem('callbackFormData');
+
+    //Очищаем поля формы
+   document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+
+    alert('Local Storage очищен!');
+}
+
+// Автозагрузка данных при открытии страницы (опционально)
+document.addEventListener('DOMContentLoaded', function () {
+    // loadFromLocalStorage(); // Раскомментируйте, если нужно автозаполнение при загрузке
+});
+
+
+
+
+
+
+
+
+
+
+
+// Функция для валидации формы
+function validateAndSubmit() {
+    // Получаем значения полей
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    // Сбрасываем предыдущие ошибки
+    clearErrors();
+
+    let isValid = true;
+
+    // Проверка имени
+    if (!firstName) {
+        showError('firstName', 'Поле "Имя" обязательно для заполнения');
+        isValid = false;
+    } else if (firstName.length < 2) {
+        showError('firstName', 'Имя должно содержать минимум 2 символа');
+        isValid = false;
+    } else if (!/^[а-яА-ЯёЁa-zA-Z\- ]+$/.test(firstName)) {
+        showError('firstName', 'Имя может содержать только буквы, пробелы и дефисы');
+        isValid = false;
+    }
+
+    // Проверка фамилии
+    if (!lastName) {
+        showError('lastName', 'Поле "Фамилия" обязательно для заполнения');
+        isValid = false;
+    } else if (lastName.length < 2) {
+        showError('lastName', 'Фамилия должна содержать минимум 2 символа');
+        isValid = false;
+    } else if (!/^[а-яА-ЯёЁa-zA-Z\- ]+$/.test(lastName)) {
+        showError('lastName', 'Фамилия может содержать только буквы, пробелы и дефисы');
+        isValid = false;
+    }
+
+    // Проверка email
+    if (!email) {
+        showError('email', 'Поле "Email" обязательно для заполнения');
+        isValid = false;
+    } else if (!isValidEmail(email)) {
+        showError('email', 'Введите корректный email адрес');
+        isValid = false;
+    }
+
+    // Проверка телефона
+    if (!phone) {
+        showError('phone', 'Поле "Телефон" обязательно для заполнения');
+        isValid = false;
+    } else if (!isValidPhone(phone)) {
+        showError('phone', 'Введите корректный номер телефона в формате +7 (XXX) XXX-XX-XX');
+        isValid = false;
+    }
+
+    // Если форма валидна, сохраняем и выводим данные в alert
+    if (isValid) {
+        saveToLocalStorage();
+        showFormDataAlert(firstName, lastName, email, phone);
+    }
+
+    return false;
+}
+
+// Функция проверки email с регулярным выражением
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Функция проверки телефона
+function isValidPhone(phone) {
+    // Проверяем формат +7 (XXX) XXX-XX-XX
+    const phoneRegex = /^\+7\s?\(?\d{3}\)?\s?\d{3}-?\d{2}-?\d{2}$/;
+    return phoneRegex.test(phone);
+}
+
+// Функция для отображения ошибок
+function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.style.color = '#e74c3c';
+    errorDiv.style.fontSize = '12px';
+    errorDiv.style.marginTop = '5px';
+    errorDiv.textContent = message;
+
+    field.style.borderColor = '#e74c3c';
+    field.parentNode.insertBefore(errorDiv, field.nextSibling);
+}
+
+// Функция для очистки ошибок
+function clearErrors() {
+    // Убираем сообщения об ошибках
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(error => error.remove());
+
+    // Восстанавливаем стандартный цвет рамок
+    const fields = ['firstName', 'lastName', 'email', 'phone'];
+    fields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.style.borderColor = '';
+        }
+    });
+}
+
+// Функция для отображения данных формы в alert
+function showFormDataAlert(firstName, lastName, email, phone) {
+    const message = `
+ ФОРМА УСПЕШНО ОТПРАВЛЕНА!
+
+ ВВЕДЕННЫЕ ДАННЫЕ:
+
+ Имя: ${firstName}
+ Фамилия: ${lastName}
+ Email: ${email}
+ Телефон: ${phone}
+ Время отправки: ${new Date().toLocaleString()}
+
+ Данные сохранены в Local Storage
+
+Спасибо за заявку! Мы свяжемся с вами в ближайшее время.
+    `;
+
+    alert(message);
+}
+
+// Обновленные функции для работы с Local Storage
 function saveToLocalStorage() {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
@@ -273,14 +469,14 @@ function saveToLocalStorage() {
         timestamp: new Date().toISOString()
     };
 
-    // Сохраняем данные в Local Storage
     localStorage.setItem('callbackFormData', JSON.stringify(formData));
 
-    alert('Данные сохранены в Local Storage!');
-    return false; // Предотвращаем отправку формы
+    // Показываем уведомление только если поля не пустые
+    if (firstName || lastName || email || phone) {
+        alert(' Данные сохранены в Local Storage!');
+    }
 }
 
-// Функция для загрузки данных из Local Storage
 function loadFromLocalStorage() {
     const savedData = localStorage.getItem('callbackFormData');
 
@@ -292,13 +488,12 @@ function loadFromLocalStorage() {
         document.getElementById('email').value = formData.email || '';
         document.getElementById('phone').value = formData.phone || '';
 
-        alert('Данные загружены из Local Storage!');
+        alert(' Данные загружены из Local Storage!');
     } else {
-        alert('В Local Storage нет сохраненных данных!');
+        alert(' В Local Storage нет сохраненных данных!');
     }
 }
 
-// Функция для очистки Local Storage
 function clearLocalStorage() {
     localStorage.removeItem('callbackFormData');
 
@@ -308,10 +503,66 @@ function clearLocalStorage() {
     document.getElementById('email').value = '';
     document.getElementById('phone').value = '';
 
-    alert('Local Storage очищен!');
+    alert(' Local Storage очищен!');
 }
 
-// Автозагрузка данных при открытии страницы (опционально)
+// Добавляем обработчики событий для реальной проверки при вводе
 document.addEventListener('DOMContentLoaded', function () {
-    // loadFromLocalStorage(); // Раскомментируйте, если нужно автозаполнение при загрузке
+    const fields = ['firstName', 'lastName', 'email', 'phone'];
+
+    fields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.addEventListener('blur', function () {
+                validateField(fieldId);
+            });
+
+            field.addEventListener('input', function () {
+                clearFieldError(fieldId);
+            });
+        }
+    });
 });
+
+// Функция для валидации отдельного поля
+function validateField(fieldId) {
+    const field = document.getElementById(fieldId);
+    const value = field.value.trim();
+
+    clearFieldError(fieldId);
+
+    switch (fieldId) {
+        case 'firstName':
+            if (value && (value.length < 2 || !/^[а-яА-ЯёЁa-zA-Z\- ]+$/.test(value))) {
+                showError(fieldId, 'Имя должно содержать минимум 2 буквы');
+            }
+            break;
+        case 'lastName':
+            if (value && (value.length < 2 || !/^[а-яА-ЯёЁa-zA-Z\- ]+$/.test(value))) {
+                showError(fieldId, 'Фамилия должна содержать минимум 2 буквы');
+            }
+            break;
+        case 'email':
+            if (value && !isValidEmail(value)) {
+                showError(fieldId, 'Введите корректный email адрес');
+            }
+            break;
+        case 'phone':
+            if (value && !isValidPhone(value)) {
+                showError(fieldId, 'Введите корректный номер телефона');
+            }
+            break;
+    }
+}
+
+// Функция для очистки ошибки конкретного поля
+function clearFieldError(fieldId) {
+    const field = document.getElementById(fieldId);
+    const errorMessage = field.parentNode.querySelector('.error-message');
+
+    if (errorMessage) {
+        errorMessage.remove();
+    }
+
+    field.style.borderColor = '';
+}

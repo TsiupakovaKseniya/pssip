@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание 1</title>
+	<link rel="stylesheet" href="style1.css">
+	<script src="script1.js"></script>
+</head>
+<body onclick="alert('Обработчик события клика')">
+	<div class="example1">
+		<button onclick="alert('Клик!')">Нажми на меня!</button>
+	</div>
+	<div class="example2">
+		<button onclick="countClicks()">Счетчик кликов</button>
+	</div>
+	<div class="example3">
+		<button id="elem">Свойство "DOM"</button>
+	</div>
+	<div class="example4">
+		<button onclick="alert(this.innerHTML)">Содержимое кнопки</button>
+	</div>
+	<div class="example5">
+		<button id="example5">Несколько обработчиков</button>
+	</div>
+	<div class="example6">
+		<button id="example6">Удаление обработчика</button>
+	</div>
+	<div class="example7">
+		<form onclick="alert('form')">FORM
+			<div onclick="alert('div')">DIV
+				<p onclick="alert('p')">P</p>
+			</div>
+		</button>
+	</div>
+	<div class="example8">	
+		<button onclick="event.stopPropagation()">Прекращение всплытия</button>
+	</div>
+    <a href="page2_17.html" class="link">Перейти на другую страницу</a>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка </title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            background-color: #000;
+            border: 2px solid #fff;
+        }
+
+        #score {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #startButton {
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #0d54f8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Змейка </h1>
+    <div id="score">Счёт: 0</div>
+    <button id="startButton">Начать игру</button>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+
+    <script src="game.js"></script>
+</body>
+
+</html>

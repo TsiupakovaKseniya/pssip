@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объект</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="object">
+        <h1>Работа с объектом "book"</h1>
+        <div class="output" id="output"></div>
+    </div>
+    <script>
+        // 1.Создаем объект "book" с описанием свойств
+        const book = {
+            Название: 'Кладбище домашних животных', // Название книги
+            Автор: 'Стивен Кинг', // Автор книги
+            Год: 1983, // Год издания
+            Жанр: 'Ужасы' // Жанр книги
+        };
+
+        // Функция для отображения текста в div
+        function displayOutput(text) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += text + '<br>';
+        }
+
+        // Доступ к свойствам объекта и их отображение
+        displayOutput('Название: ' + book.Название); // Выводим название книги 3.
+        displayOutput('Автор: ' + book.Автор); // Выводим автора книги
+        displayOutput('Год: ' + book.Год); // Выводим год издания
+        displayOutput('Жанр: ' + book.Жанр); // Выводим жанр книги
+
+        // Удаляем свойство "genre" 4.
+        delete book.Жанр;
+        displayOutput('После удаления свойства "Жанр":');
+        displayOutput('Название: ' + book.Название);
+        displayOutput('Автор: ' + book.Автор);
+        displayOutput('Год: ' + book.Год);
+        displayOutput('Жанр: ' + (book.Жанр ? book.Жанр : 'не существует')); // Проверяем существование свойства
+
+        // Проверяем существование свойства 5.
+        if ('Жанр' in book) {
+            displayOutput('Свойство "Жанр" существует');
+        } else {
+            displayOutput('Свойство "Жанр" не существует');
+        }
+
+        if ('Автор' in book) {
+            displayOutput('Свойство "Автор" существует');
+        }
+
+        // Перебираем свойства объекта и выводим их 6.
+        displayOutput('Свойства объекта book:');
+        for (let key in book) {
+            displayOutput(key + ': ' + book[key]); // Выводим каждое свойство и его значение
+        }
+    </script>
+
+</body>
+
+</html>

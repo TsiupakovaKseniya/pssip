@@ -1,0 +1,174 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Кухонный гарнитур \"ЛОФТ\"",
+            "category": "Эконом",
+            "length": "2 метра",
+            "price": 14900,
+            "oldPrice": 19899,
+            "image": "./img/Лофт-1.png",
+            "description": "Современный кухонный гарнитур в стиле лофт с практичными фасадами и удобной планировкой. Идеально подходит для небольших помещений.",
+            "characteristics": {
+                "material": "ЛДСП",
+                "color": "Серый металлик",
+                "fittings": "BOYARD",
+                "warranty": "24 месяца"
+            },
+            "inStock": true
+        },
+        {
+            "id": 2,
+            "name": "Кухонный гарнитур \"Орхидея\"",
+            "category": "Классика",
+            "length": "2 метра",
+            "price": 14900,
+            "oldPrice": 19899,
+            "image": "./img/Orhidea.png",
+            "description": "Элегантный гарнитур с фотопечатью орхидеи на фасадах. Сочетает в себе классический стиль и современные технологии.",
+            "characteristics": {
+                "material": "МДФ с фотопечатью",
+                "color": "Белый с орхидеей",
+                "fittings": "Hettich",
+                "warranty": "36 месяцев"
+            },
+            "inStock": true
+        },
+        {
+            "id": 3,
+            "name": "Кухонный гарнитур \"Шимо\"",
+            "category": "Минимализм",
+            "length": "1.2 метра",
+            "price": 69620,
+            "oldPrice": 75620,
+            "image": "./img/kitchen-popup-1.png",
+            "description": "Компактный японский стиль с минималистичным дизайном. Идеальное решение для маленьких кухонь и студий.",
+            "characteristics": {
+                "material": "МДФ",
+                "color": "Светлый дуб",
+                "fittings": "Blum",
+                "warranty": "24 месяца"
+            },
+            "inStock": true
+        },
+        {
+            "id": 4,
+            "name": "Кухонный гарнитур \"Красная клубника\"",
+            "category": "Модерн",
+            "length": "2.5 метра",
+            "price": 89900,
+            "oldPrice": 105000,
+            "image": "./img/Red_Strawbery.png",
+            "description": "Яркий и стильный гарнитур с фотопечатью клубники. Для тех, кто любит смелые решения в интерьере.",
+            "characteristics": {
+                "material": "МДФ с фотопечатью",
+                "color": "Красный с принтом",
+                "fittings": "BOYARD",
+                "warranty": "36 месяцев"
+            },
+            "inStock": true
+        },
+        {
+            "id": 5,
+            "name": "Кухонный гарнитур \"Скандинавия\"",
+            "category": "Скандинавский",
+            "length": "3 метра",
+            "price": 125000,
+            "oldPrice": 145000,
+            "image": "./img/gallery-img-2razdel-5.jpg",
+            "description": "Светлый и просторный гарнитур в скандинавском стиле. Максимум функциональности и естественности.",
+            "characteristics": {
+                "material": "МДФ эмаль",
+                "color": "Белый матовый",
+                "fittings": "Blum",
+                "warranty": "48 месяцев"
+            },
+            "inStock": true
+        },
+        {
+            "id": 6,
+            "name": "Кухонный гарнитур \"Классик\"",
+            "category": "Классика",
+            "length": "2.8 метра",
+            "price": 156000,
+            "oldPrice": 178000,
+            "image": "./img/gallery-img-4razdel-3.jpg",
+            "description": "Классический гарнитур с филенчатыми фасадами и изящной фурнитурой. Для ценителей традиционного стиля.",
+            "characteristics": {
+                "material": "МДФ эмаль",
+                "color": "Кремовый",
+                "fittings": "Hettich",
+                "warranty": "60 месяцев"
+            },
+            "inStock": true
+        },
+        {
+            "id": 7,
+            "name": "Кухонный гарнитур \"Минимал\"",
+            "category": "Минимализм",
+            "length": "2.2 метра",
+            "price": 78900,
+            "oldPrice": 89900,
+            "image": "./img/gallery-img4.png",
+            "description": "Строгий минималистичный дизайн без лишних деталей. Функциональность и эргономика на первом месте.",
+            "characteristics": {
+                "material": "ЛДСП",
+                "color": "Графитовый",
+                "fittings": "BOYARD",
+                "warranty": "24 месяца"
+            },
+            "inStock": true
+        },
+        {
+            "id": 8,
+            "name": "Угловой гарнитур \"Премиум\"",
+            "category": "Премиум",
+            "length": "4 метра",
+            "price": 245000,
+            "oldPrice": 289000,
+            "image": "./img/gallery-img-2razdel-1.jpg",
+            "description": "Просторный угловой гарнитур премиум-класса с системой умного хранения и подсветкой.",
+            "characteristics": {
+                "material": "МДФ эмаль",
+                "color": "Шоколад",
+                "fittings": "Blum",
+                "warranty": "72 месяца"
+            },
+            "inStock": true
+        },
+        {
+            "id": 9,
+            "name": "Кухонный гарнитур \"НеоКлассика\"",
+            "category": "Классика",
+            "length": "3.5 метра",
+            "price": 187000,
+            "oldPrice": 215000,
+            "image": "./img/gallery-img5.png",
+            "description": "Современная интерпретация классического стиля с элементами неоклассики и премиальной фурнитурой.",
+            "characteristics": {
+                "material": "МДФ",
+                "color": "Белый глянец",
+                "fittings": "Hettich",
+                "warranty": "60 месяцев"
+            },
+            "inStock": true
+        },
+        {
+            "id": 10,
+            "name": "Компактный гарнитур \"Смарт\"",
+            "category": "Эконом",
+            "length": "1.5 метра",
+            "price": 45900,
+            "oldPrice": 54900,
+            "image": "./img/gallery-img6.png",
+            "description": "Умное решение для маленьких пространств. Максимум функциональности при минимальных размерах.",
+            "characteristics": {
+                "material": "ЛДСП",
+                "color": "Светлый орех",
+                "fittings": "BOYARD",
+                "warranty": "18 месяцев"
+            },
+            "inStock": true
+        }
+    ]
+}

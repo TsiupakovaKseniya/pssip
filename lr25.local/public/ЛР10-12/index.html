@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вариант №68 </title>
+    <script>
+        // Задание 1
+        function showTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            alert(`Текущее время: ${hours}:${minutes}:${seconds}`);
+        }
+
+        // Задание 4
+       
+    </script>
+</head>
+
+<body>
+
+    <!-- Задание 1 -->
+    <section>
+        <h2>Задание 1</h2>
+        <button onclick="showTime()">Показать год</button>
+    </section>
+
+    <!-- Задание 2 -->
+    <section>
+        <h2>Задание 2</h2>
+        <div id="task2-output"></div>
+        <script>
+            const n = 15; 
+            const fullName = "Тюпакова Ксения"; 
+            let output = '';
+
+            for (let i = 0; i < n + 5; i++) {
+                output += `${fullName}<br>`;
+            }
+            document.getElementById('task2-output').innerHTML = output;
+        </script>
+    </section>
+
+    <!-- Задание 3 -->
+    <section>
+        <h2>Задание 3</h2>
+        <div id="task3-output"></div>
+        <script>
+            // Задание 3
+            const arr = [4, 15, 8, 23, 42, 16, 7];
+            let evenCount = 0;
+            let max = arr[0];
+
+            for (const num of arr) {
+                if (num % 2 === 0) evenCount++;
+                if (num > max) max = num;
+            }
+
+            document.getElementById('task3-output').innerHTML = `
+                Исходный массив: [${arr.join(', ')}]<br>
+                Количество четных элементов: ${evenCount}<br>
+                Максимальный элемент: ${max}
+            `;
+        </script>
+    </section>
+
+    <!-- Задание 4 -->
+<section>
+    <h2>Задание 4</h2>
+    <div class="formula">
+        <h3>Формула для расчета:</h3>
+<p>f(x) = -3x + 9, если x ≤ 7</p>
+<p>f(x) = 1/(x - 7), если x > 7</p>
+    </div>
+    
+    <form id="calcForm">
+        <label for="xValue">Введите значение x:</label><br>
+        <input type="number" id="xValue" step="any" required><br>
+        <button type="button" onclick="calculate()">Рассчитать</button>
+    </form>
+    
+    <div id="result"></div>
+
+    <!-- Задание 5 -->
+    <section>
+        <h2>Задание 5</h2>
+        <div id="task5-output"></div>
+        <script>
+            // Задание 5
+            const s1 = "Тюпакова";
+            const s2 = "Саяпина";
+            const s2Length = s2.length;
+            const reversedS1 = s1.split('').reverse().join('');
+            const lowerS2 = s2.toLowerCase();
+
+            document.getElementById('task5-output').innerHTML = `
+                Исходные строки:<br>
+                S1 = "${s1}"<br>
+                S2 = "${s2}"<br><br>
+                Результаты:<br>
+                Длина S2: ${s2Length}<br>
+                S1 в обратном порядке: ${reversedS1}<br>
+                S2 в нижнем регистре: ${lowerS2}
+            `;
+        </script>
+    </section>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .formula {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px 0;
+        }
+        button {
+            background-color: #874caf;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #874caf;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7ef;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="script.js"></script>
+</body>
+
+</html>

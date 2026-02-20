@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h3>Анкета</h3>
+        <form action="#" method="post">
+            <div>
+                <p><b>Напишите свое ФИО (фамилия, имя, отчество)</b></p>
+                <textarea cols="15" rows="5"></textarea>
+            </div>
+            <div>
+                <!--переключатели -->
+                <p><b>Выберете свой пол</b></p>
+                <p><input type="radio" name="sex">Женский</p>
+                <p><input type="radio" name="sex">Мужской</p>
+
+            </div>
+            <div>
+                <label>Выберете любимый цвет(а):</label><br>
+                <p><input type="checkbox">Красный</p>
+                <p><input type="checkbox">Желтый</p>
+                <p><input type="checkbox">Зеленый</p>
+                <p><input type="checkbox">Синий</p>
+                <p><input type="checkbox">Фиолетовый</p>
+            </div>
+            <div>
+                <p><b>Выберете свое фото</b></p>
+                <p><input type="file" name="photo"></p>
+            </div>
+            <button>
+                Отправить
+            </button>
+        </form>
+    </div>
+    <img class="rotating-element" 
+    
+    style=" background: linear-gradient(to right, hsl(127, 100%, 50%), #f602c5); 
+        width: 200px;
+        height: 250px;
+        border-radius: 50%;">
+    <div>
+        <a href="index.html">Вернуться на главную страницу</a>
+    </div>
+</body>
+</html>
